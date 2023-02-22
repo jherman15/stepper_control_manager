@@ -14,7 +14,7 @@
 //--------------------------------------------------------------------------------
 
 enum{
-  HALF_AUTO_MODE
+  HALF_AUTO_MODE,
   MANUAL_MODE,
   AUTO_MODE
 } mode;
