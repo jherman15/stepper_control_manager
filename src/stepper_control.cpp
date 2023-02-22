@@ -45,12 +45,12 @@ void StepperControl::turnOnManual()
     direction = getDirectionSwitch();
     if (direction == 1)
     {
-      stepper_motor->setSpeed(1500);
+      stepper_motor->setSpeed(600);
 
     }
     else if (direction == -1)
     {
-      stepper_motor->setSpeed(-1500);
+      stepper_motor->setSpeed(-500);
     }
     stepper_motor->runSpeed();
 }
@@ -66,7 +66,6 @@ void StepperControl::initialiseAutoOrHalf()
   stepper_motor->setCurrentPosition(0);
   Serial.print("\nStepper initial position: ");
   Serial.print(stepper_motor->currentPosition());
-  stepper_motor->setSpeed(500);
 }
 
  void StepperControl::turnOnHalfAuto()
@@ -75,10 +74,12 @@ void StepperControl::initialiseAutoOrHalf()
   direction = getDirectionSwitch();
   if (direction == 1)
   {
+    stepper_motor->setSpeed(500);
     stepper_motor->moveTo(stepper_motor->currentPosition() + numberOfRevolutions);
   }
   else if (direction == -1)
   {
+    stepper_motor->setSpeed(600);
     stepper_motor->moveTo(stepper_motor->currentPosition() - numberOfRevolutions);
   }
   stepper_motor->runToPosition();
@@ -95,11 +96,13 @@ void StepperControl::turnOnAutomatic()
   readLightIntensity();
   if (voltage >= 3.5)
   {
+    stepper_motor->setSpeed(600);
     Serial.print("voltage >= 3.5 GOING UP");
     stepper_motor->moveTo(stepper_motor->currentPosition() + numberOfRevolutions);
   }
   else if (voltage < 3.5)
   {
+    stepper_motor->setSpeed(500);
     Serial.print("voltage < 3.5 GOING DOWN");
     stepper_motor->moveTo(stepper_motor->currentPosition() - numberOfRevolutions);
   }

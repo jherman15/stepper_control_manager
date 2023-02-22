@@ -90,7 +90,7 @@ void setup()
 {
   Serial.begin(115200);
   
-	stepperCtrl.stepper_motor->setMaxSpeed(300.0);
+	stepperCtrl.stepper_motor->setMaxSpeed(700);
 	stepperCtrl.stepper_motor->setAcceleration(50.0);
   
   Blynk.begin(auth, ssid, pass, "blynk.cloud", 80);
