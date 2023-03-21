@@ -45,12 +45,12 @@ void StepperControl::turnOnManual()
     direction = getDirectionSwitch();
     if (direction == 1)
     {
-      stepper_motor->setSpeed(600);
+      stepper_motor->setSpeed(500);
 
     }
     else if (direction == -1)
     {
-      stepper_motor->setSpeed(-500);
+      stepper_motor->setSpeed(-600);
     }
     stepper_motor->runSpeed();
 }
