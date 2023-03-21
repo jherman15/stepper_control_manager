@@ -96,13 +96,13 @@ void StepperControl::turnOnAutomatic()
   readLightIntensity();
   if (voltage >= 3.5)
   {
-    stepper_motor->setSpeed(600);
+    stepper_motor->setSpeed(500);
     Serial.print("voltage >= 3.5 GOING UP");
     stepper_motor->moveTo(stepper_motor->currentPosition() + numberOfRevolutions);
   }
   else if (voltage < 3.5)
   {
-    stepper_motor->setSpeed(500);
+    stepper_motor->setSpeed(600);
     Serial.print("voltage < 3.5 GOING DOWN");
     stepper_motor->moveTo(stepper_motor->currentPosition() - numberOfRevolutions);
   }
